@@ -1,0 +1,9 @@
+#!/bin/sh
+#
+# Perform necessary packageiq removal steps
+# after package is uninstalled.
+#
+
+echo "packageiq has been uninstalled!"
+
+exit 0
