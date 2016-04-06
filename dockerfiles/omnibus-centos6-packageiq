@@ -1,4 +1,4 @@
-FROM omnibus-centos6:latest
+FROM omnibus-centos6-base:latest
 
 RUN git clone https://github.com/eoly/omnibus-packageiq.git && cd omnibus-packageiq && ln -s /pkg pkg
 WORKDIR /omnibus-packageiq
