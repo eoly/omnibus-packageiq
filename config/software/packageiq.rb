@@ -20,5 +20,6 @@ build do
   copy 'etc/packageiq/rabbitmq.json', '/etc/packageiq/rabbitmq.json'
   copy 'etc/packageiq/elasticsearch.json', '/etc/packageiq/elasticsearch.json'
   copy 'etc/packageiq/indexer.json', '/etc/packageiq/indexer.json'
+  mkdir '/lib/systemd/system'
   copy 'lib/systemd/system/piq_indexer.service', '/lib/systemd/system/piq_indexer.service'
 end
