@@ -2,4 +2,4 @@ FROM omnibus-centos6-base:latest
 
 WORKDIR /omnibus-packageiq
 RUN git pull
-CMD source /etc/profile.d/chef-ruby.sh bin/omnibus build packageiq
+CMD source /etc/profile.d/chef-ruby.sh && bin/omnibus build packageiq
