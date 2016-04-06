@@ -43,3 +43,9 @@ RUN git config --global user.email "packager@myco" && \
 RUN echo "export PATH=\${PATH}:/opt/chef/embedded/bin" | tee -a /etc/profile.d/chef-ruby.sh
 
 RUN source /etc/profile.d/chef-ruby.sh && gem install bundler --no-ri --no-rdoc
+
+RUN git clone https://github.com/eoly/omnibus-packageiq.git
+
+WORKDIR /omnibus-packageiq
+
+CMD source /etc/profile.d/chef-ruby.sh && bundle install --binstubs

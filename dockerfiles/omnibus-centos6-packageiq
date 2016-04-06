@@ -1,5 +1,5 @@
 FROM omnibus-centos6-base:latest
 
-RUN git clone https://github.com/eoly/omnibus-packageiq.git && cd omnibus-packageiq && ln -s /pkg pkg
 WORKDIR /omnibus-packageiq
-CMD source /etc/profile.d/chef-ruby.sh && bundle install --binstubs && bin/omnibus build packageiq
+RUN git pull
+CMD source /etc/profile.d/chef-ruby.sh bin/omnibus build packageiq
