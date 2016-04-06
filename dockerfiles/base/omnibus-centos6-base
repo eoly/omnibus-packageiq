@@ -1,0 +1,45 @@
+FROM centos:centos6
+MAINTAINER Eric Olsen <eric@ericolsen.net>
+
+VOLUME /pkg
+
+RUN rpm -ivh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm
+RUN yum install -y centos-release-SCL
+
+RUN yum install -y \
+    autoconf \
+    bison \
+    flex \
+    gcc \
+    gcc-c++ \
+    kernel-devel \
+    make \
+    m4 \
+    patch \
+    openssl-devel \
+    expat-devel \
+    perl-ExtUtils-MakeMaker \
+    curl-devel \
+    tar \
+    unzip \
+    libxml2-devel \
+    libxslt-devel \
+    ncurses-devel \
+    zlib-devel \
+    gettext-devel \
+    rsync \
+    rpm-build \
+    fakeroot \
+    ccache \
+    wget
+RUN yum clean all
+
+RUN cd /usr/src && wget https://www.kernel.org/pub/software/scm/git/git-2.5.5.tar.gz && tar xvzf git-2.5.5.tar.gz && cd git-2.5.5 && make prefix=/usr/local all && make prefix=/usr/local install
+
+RUN curl -L https://www.opscode.com/chef/install.sh | bash
+RUN git config --global user.email "packager@myco" && \
+    git config --global user.name "Omnibus Packager"
+
+RUN echo "export PATH=\${PATH}:/opt/chef/embedded/bin" | tee -a /etc/profile.d/chef-ruby.sh
+
+RUN source /etc/profile.d/chef-ruby.sh && gem install bundler --no-ri --no-rdoc

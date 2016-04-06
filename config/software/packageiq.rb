@@ -1,5 +1,6 @@
 name 'packageiq'
-default_version '0.1.1'
+
+default_version ENV['PACKAGEIQ_VERSION']
 
 dependency 'ruby'
 dependency 'rubygems'
