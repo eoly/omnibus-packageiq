@@ -3,7 +3,7 @@ MAINTAINER Eric Olsen <eric@ericolsen.net>
 
 VOLUME /pkg
 
-RUN rpm -ivh http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-2.noarch.rpm && rpm --import http://mirror.pnl.gov/epel/RPM-GPG-KEY-EPEL-7 && yum makecache
+RUN rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && rpm --import http://mirror.pnl.gov/epel/RPM-GPG-KEY-EPEL-7 && yum makecache
 RUN rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
 
 RUN yum install -y \
