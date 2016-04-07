@@ -36,7 +36,6 @@ extra_package_file '/etc/cron.d/packageiq'
 if ohai['platform_family'] == 'rhel'
   if ohai['platform_version'].to_f >= 7
     extra_package_file '/lib/systemd/system/piq_indexer.service'
-    config_file '/lib/systemd/system/piq_indexer.service'
   end
 end
 
