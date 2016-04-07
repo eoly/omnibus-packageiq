@@ -16,7 +16,7 @@ build do
   copy 'build/etc/profile.d/packageiq.sh', '/etc/profile.d/packageiq.sh'
 
   mkdir '/etc/cron.d'
-  copy 'build/etc/cron.d/packageiq', '/etc/cron.d/packageiq.sh'
+  copy 'build/etc/cron.d/packageiq', '/etc/cron.d/packageiq'
 
   if ohai['platform_family'] == 'rhel'
     if ohai['platform_version'].to_f >= 7
