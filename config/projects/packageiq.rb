@@ -22,7 +22,9 @@ end
 
 build_iteration ENV['BUILD_ITERATION']
 
-extra_package_file '/etc/packageiq'
+extra_package_file '/etc/packageiq/rabbitmq.json'
+extra_package_file '/etc/packageiq/elasticsearch.json'
+extra_package_file '/etc/packageiq/indexer.json'
 #extra_package_file '/lib/systemd/system/piq_indexer.service'
 
 config_file '/etc/packageiq/rabbitmq.json'
