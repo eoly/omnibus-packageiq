@@ -22,9 +22,13 @@ end
 
 build_iteration ENV['BUILD_ITERATION']
 
+extra_package_files '/etc/packageiq'
+extra_package_files '/lib/systemd/system/piq_indexer.service'
+
 config_file '/etc/packageiq/rabbitmq.json'
 config_file '/etc/packageiq/elasticsearch.json'
 config_file '/etc/packageiq/indexer.json'
+config_file '/lib/systemd/system/piq_indexer.service'
 
 # Creates required build directories
 dependency "preparation"
