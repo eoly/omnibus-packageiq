@@ -47,5 +47,7 @@ dependency "packageiq"
 # Version manifest file
 #dependency "version-manifest"
 
+exclude '/etc'
+exclude '/lib'
 exclude "**/.git"
 exclude "**/bundler/git"
