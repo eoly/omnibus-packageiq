@@ -22,22 +22,9 @@ end
 
 build_iteration ENV['BUILD_ITERATION']
 
-extra_package_file '/etc/packageiq/rabbitmq.json'
-extra_package_file '/etc/packageiq/elasticsearch.json'
-extra_package_file '/etc/packageiq/indexer.json'
-
 config_file '/etc/packageiq/rabbitmq.json'
 config_file '/etc/packageiq/elasticsearch.json'
 config_file '/etc/packageiq/indexer.json'
-
-extra_package_file '/etc/profile.d/packageiq.sh'
-extra_package_file '/etc/cron.d/packageiq'
-
-if ohai['platform_family'] == 'rhel'
-  if ohai['platform_version'].to_f >= 7
-    extra_package_file '/lib/systemd/system/piq_indexer.service'
-  end
-end
 
 # Creates required build directories
 dependency "preparation"
@@ -47,7 +34,5 @@ dependency "packageiq"
 # Version manifest file
 #dependency "version-manifest"
 
-exclude '/etc'
-exclude '/lib'
 exclude "**/.git"
 exclude "**/bundler/git"
