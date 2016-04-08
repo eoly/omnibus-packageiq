@@ -27,6 +27,8 @@ then
   /usr/bin/systemctl daemon-reload
 fi
 
+touch /etc/cron.d/packageiq
+
 echo "Thank you for installing packageiq!"
 
 exit 0
