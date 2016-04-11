@@ -1,6 +1,10 @@
 FROM omnibus-centos6-base:latest
-
+RUN source /etc/profile.d/chef-ruby.sh && gem uninstall omnibus
+RUN yum install -y wget
+RUN wget -O /tmp/omnibus-5.3.0.hotfix.1.gem http://www.cybrzn.com/omnibus-5.3.0.hotfix.1.gem
+RUN source /etc/profile.d/chef-ruby.sh && gem install --local /tmp/omnibus-5.3.0.hotfix.1.gem
 WORKDIR /omnibus-packageiq
 RUN git pull
 RUN ln -s /pkg pkg
+RUN source /etc/profile.d/chef-ruby.sh && bundle install --binstubs
 CMD source /etc/profile.d/chef-ruby.sh && bin/omnibus build packageiq
